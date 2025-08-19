@@ -1,0 +1,12 @@
+{"time":"2025-07-09T15:51:39.435815339Z","level":"INFO","msg":"stream: starting","core version":"0.21.0"}
+{"time":"2025-07-09T15:51:39.804195949Z","level":"INFO","msg":"stream: created new stream","id":"ip4dzdcn"}
+{"time":"2025-07-09T15:51:39.804230503Z","level":"INFO","msg":"stream: started","id":"ip4dzdcn"}
+{"time":"2025-07-09T15:51:39.804258539Z","level":"INFO","msg":"writer: Do: started","stream_id":"ip4dzdcn"}
+{"time":"2025-07-09T15:51:39.804346322Z","level":"INFO","msg":"handler: started","stream_id":"ip4dzdcn"}
+{"time":"2025-07-09T15:51:39.804355791Z","level":"INFO","msg":"sender: started","stream_id":"ip4dzdcn"}
+{"time":"2025-07-09T15:51:41.779219907Z","level":"INFO","msg":"stream: closing","id":"ip4dzdcn"}
+{"time":"2025-07-09T15:51:42.781647229Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-07-09T15:51:43.023503666Z","level":"INFO","msg":"handler: closed","stream_id":"ip4dzdcn"}
+{"time":"2025-07-09T15:51:43.02364409Z","level":"INFO","msg":"writer: Close: closed","stream_id":"ip4dzdcn"}
+{"time":"2025-07-09T15:51:43.023777665Z","level":"INFO","msg":"sender: closed","stream_id":"ip4dzdcn"}
+{"time":"2025-07-09T15:51:43.023844736Z","level":"INFO","msg":"stream: closed","id":"ip4dzdcn"}

@@ -1,0 +1,17 @@
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/opt/conda/lib/python3.10/site-packages/torch/optim/lr_scheduler.py:62: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn(
+
+  | Name  | Type | Params | Mode
+---------------------------------------
+0 | model | E2E  | 238 M  | train
+---------------------------------------
+238 M     Trainable params
+0         Non-trainable params
+238 M     Total params
+955.192   Total estimated model params size (MB)
+561       Modules in train mode
+0         Modules in eval mode
+Epoch 0:   2%|█▋                                                                                              | 1/59 [05:50<5:38:24,  0.00it/s, v_num=f0mw]
+
+Detected KeyboardInterrupt, attempting graceful shutdown ...

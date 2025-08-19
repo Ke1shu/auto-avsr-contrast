@@ -1,0 +1,16 @@
+{"time":"2025-07-10T12:10:00.62495566Z","level":"INFO","msg":"stream: starting","core version":"0.21.0"}
+{"time":"2025-07-10T12:10:00.949495315Z","level":"INFO","msg":"stream: created new stream","id":"j7hj9wwu"}
+{"time":"2025-07-10T12:10:00.949545927Z","level":"INFO","msg":"stream: started","id":"j7hj9wwu"}
+{"time":"2025-07-10T12:10:00.949731534Z","level":"INFO","msg":"writer: Do: started","stream_id":"j7hj9wwu"}
+{"time":"2025-07-10T12:10:00.949773421Z","level":"INFO","msg":"sender: started","stream_id":"j7hj9wwu"}
+{"time":"2025-07-10T12:10:00.949815447Z","level":"INFO","msg":"handler: started","stream_id":"j7hj9wwu"}
+{"time":"2025-07-10T12:22:01.846880655Z","level":"INFO","msg":"stream: closing","id":"j7hj9wwu"}
+{"time":"2025-07-10T12:22:02.051883498Z","level":"ERROR","msg":"HTTP error","status":404,"method":"POST","url":"https://api.wandb.ai/files/mgmgkeis-tokyo-university-of-science/auto_avsr_lipreader/j7hj9wwu/file_stream"}
+{"time":"2025-07-10T12:22:02.052140533Z","level":"ERROR+4","msg":"filestream: fatal error: filestream: failed to upload: 404 Not Found path=files/mgmgkeis-tokyo-university-of-science/auto_avsr_lipreader/j7hj9wwu/file_stream: {\"error\":\"run auto_avsr_lipreader/j7hj9wwu not found while streaming file\"}"}
+{"time":"2025-07-10T12:22:02.062759567Z","level":"ERROR","msg":"HTTP error","status":404,"method":"POST","url":"https://api.wandb.ai/graphql"}
+{"time":"2025-07-10T12:22:02.063886902Z","level":"ERROR","msg":"runfiles: CreateRunFiles returned error: returned error 404: {\"data\":{\"createRunFiles\":null},\"errors\":[{\"message\":\"run auto_avsr_lipreader/j7hj9wwu not found during createRunFiles\",\"path\":[\"createRunFiles\"]}]}"}
+{"time":"2025-07-10T12:22:02.06473795Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-07-10T12:22:02.065065745Z","level":"INFO","msg":"writer: Close: closed","stream_id":"j7hj9wwu"}
+{"time":"2025-07-10T12:22:02.065110401Z","level":"INFO","msg":"sender: closed","stream_id":"j7hj9wwu"}
+{"time":"2025-07-10T12:22:02.065130334Z","level":"INFO","msg":"handler: closed","stream_id":"j7hj9wwu"}
+{"time":"2025-07-10T12:22:02.065166622Z","level":"INFO","msg":"stream: closed","id":"j7hj9wwu"}

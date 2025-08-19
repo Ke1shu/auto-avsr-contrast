@@ -1,0 +1,65 @@
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Traceback (most recent call last):
+  File "/workspace/auto-avsr/train.py", line 212, in <module>
+    cli_main()
+  File "/workspace/auto-avsr/train.py", line 207, in cli_main
+    trainer.fit(model=modelmodule, datamodule=datamodule, ckpt_path=args.ckpt_path)
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 561, in fit
+    call._call_and_handle_interrupt(
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/trainer/call.py", line 47, in _call_and_handle_interrupt
+    return trainer.strategy.launcher.launch(trainer_fn, *args, trainer=trainer, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/strategies/launchers/subprocess_script.py", line 105, in launch
+    return function(*args, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 599, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path)
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 988, in _run
+    self.strategy.setup(self)
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/strategies/ddp.py", line 174, in setup
+    self.setup_optimizers(trainer)
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/strategies/strategy.py", line 139, in setup_optimizers
+    self.optimizers, self.lr_scheduler_configs = _init_optimizers_and_lr_schedulers(self.lightning_module)
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/core/optimizer.py", line 180, in _init_optimizers_and_lr_schedulers
+    optim_conf = call._call_lightning_module_hook(model.trainer, "configure_optimizers", pl_module=model)
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/trainer/call.py", line 176, in _call_lightning_module_hook
+    output = fn(*args, **kwargs)
+  File "/workspace/auto-avsr/lightning.py", line 50, in configure_optimizers
+    scheduler = WarmupCosineScheduler(optimizer, self.args.warmup_epochs, self.args.max_epochs, len(self.trainer.datamodule.train_dataloader()) / self.trainer.num_devices / self.trainer.num_nodes)
+  File "/workspace/auto-avsr/datamodule/data_module.py", line 126, in train_dataloader
+    dataset = AVDataset(
+  File "/workspace/auto-avsr/datamodule/av_dataset.py", line 47, in __init__
+    self.list = self.load_list(label_path)
+  File "/workspace/auto-avsr/datamodule/av_dataset.py", line 55, in load_list
+    for path_count_label in open(label_path).read().splitlines():
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/auto-avsr/oulu/labels/train.csv'
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/workspace/auto-avsr/train.py", line 212, in <module>
+[rank0]:     cli_main()
+[rank0]:   File "/workspace/auto-avsr/train.py", line 207, in cli_main
+[rank0]:     trainer.fit(model=modelmodule, datamodule=datamodule, ckpt_path=args.ckpt_path)
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 561, in fit
+[rank0]:     call._call_and_handle_interrupt(
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/trainer/call.py", line 47, in _call_and_handle_interrupt
+[rank0]:     return trainer.strategy.launcher.launch(trainer_fn, *args, trainer=trainer, **kwargs)
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/strategies/launchers/subprocess_script.py", line 105, in launch
+[rank0]:     return function(*args, **kwargs)
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 599, in _fit_impl
+[rank0]:     self._run(model, ckpt_path=ckpt_path)
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 988, in _run
+[rank0]:     self.strategy.setup(self)
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/strategies/ddp.py", line 174, in setup
+[rank0]:     self.setup_optimizers(trainer)
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/strategies/strategy.py", line 139, in setup_optimizers
+[rank0]:     self.optimizers, self.lr_scheduler_configs = _init_optimizers_and_lr_schedulers(self.lightning_module)
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/core/optimizer.py", line 180, in _init_optimizers_and_lr_schedulers
+[rank0]:     optim_conf = call._call_lightning_module_hook(model.trainer, "configure_optimizers", pl_module=model)
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/trainer/call.py", line 176, in _call_lightning_module_hook
+[rank0]:     output = fn(*args, **kwargs)
+[rank0]:   File "/workspace/auto-avsr/lightning.py", line 50, in configure_optimizers
+[rank0]:     scheduler = WarmupCosineScheduler(optimizer, self.args.warmup_epochs, self.args.max_epochs, len(self.trainer.datamodule.train_dataloader()) / self.trainer.num_devices / self.trainer.num_nodes)
+[rank0]:   File "/workspace/auto-avsr/datamodule/data_module.py", line 126, in train_dataloader
+[rank0]:     dataset = AVDataset(
+[rank0]:   File "/workspace/auto-avsr/datamodule/av_dataset.py", line 47, in __init__
+[rank0]:     self.list = self.load_list(label_path)
+[rank0]:   File "/workspace/auto-avsr/datamodule/av_dataset.py", line 55, in load_list
+[rank0]:     for path_count_label in open(label_path).read().splitlines():
+[rank0]: FileNotFoundError: [Errno 2] No such file or directory: '/workspace/auto-avsr/oulu/labels/train.csv'

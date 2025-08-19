@@ -1,0 +1,234 @@
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/opt/conda/lib/python3.10/site-packages/torch/optim/lr_scheduler.py:62: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn(
+
+  | Name  | Type | Params | Mode
+---------------------------------------
+0 | model | E2E  | 238 M  | train
+---------------------------------------
+238 M     Trainable params
+0         Non-trainable params
+238 M     Total params
+955.174   Total estimated model params size (MB)
+561       Modules in train mode
+0         Modules in eval mode
+Sanity Checking DataLoader 0:   0%|                                                                                                                                                           | 0/2 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/trainer/call.py", line 47, in _call_and_handle_interrupt
+    return trainer.strategy.launcher.launch(trainer_fn, *args, trainer=trainer, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/strategies/launchers/subprocess_script.py", line 105, in launch
+    return function(*args, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 599, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path)
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 1012, in _run
+    results = self._run_stage()
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 1054, in _run_stage
+    self._run_sanity_check()
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 1083, in _run_sanity_check
+    val_loop.run()
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/loops/utilities.py", line 179, in _decorator
+    return loop_run(self, *args, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 145, in run
+    self._evaluation_step(batch, batch_idx, dataloader_idx, dataloader_iter)
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 437, in _evaluation_step
+    output = call._call_strategy_hook(trainer, hook_name, *step_args)
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/trainer/call.py", line 328, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/strategies/strategy.py", line 411, in validation_step
+    return self._forward_redirection(self.model, self.lightning_module, "validation_step", *args, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/strategies/strategy.py", line 641, in __call__
+    wrapper_output = wrapper_module(*args, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/torch/nn/parallel/distributed.py", line 1643, in forward
+    else self._run_ddp_forward(*inputs, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/torch/nn/parallel/distributed.py", line 1459, in _run_ddp_forward
+    return self.module(*inputs, **kwargs)  # type: ignore[index]
+  File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/strategies/strategy.py", line 634, in wrapped_forward
+    out = method(*_args, **_kwargs)
+  File "/workspace/auto-avsr/lightning.py", line 67, in validation_step
+    return self._step(batch, batch_idx, step_type="val")
+  File "/workspace/auto-avsr/lightning.py", line 97, in _step
+    loss, loss_ctc, loss_att, acc = self.model(batch["inputs"], batch["input_lengths"], batch["targets"])
+  File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/workspace/auto-avsr/espnet/nets/pytorch_backend/e2e_asr_conformer.py", line 79, in forward
+    pred_pad, _ = self.decoder(ys_in_pad, ys_mask, x, padding_mask)
+  File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/workspace/auto-avsr/espnet/nets/pytorch_backend/decoder/transformer_decoder.py", line 250, in forward
+    x = self.embed(tgt)
+  File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/container.py", line 250, in forward
+    input = module(input)
+  File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/sparse.py", line 190, in forward
+    return F.embedding(
+  File "/opt/conda/lib/python3.10/site-packages/torch/nn/functional.py", line 2551, in embedding
+    return torch.embedding(weight, input, padding_idx, scale_grad_by_freq, sparse)
+RuntimeError: CUDA error: device-side assert triggered
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/auto-avsr/train.py", line 212, in <module>
+    cli_main()
+  File "/workspace/auto-avsr/train.py", line 207, in cli_main
+    trainer.fit(model=modelmodule, datamodule=datamodule, ckpt_path=args.ckpt_path)
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 561, in fit
+    call._call_and_handle_interrupt(
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/trainer/call.py", line 69, in _call_and_handle_interrupt
+    trainer._teardown()
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 1035, in _teardown
+    self.strategy.teardown()
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/strategies/ddp.py", line 419, in teardown
+    super().teardown()
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/strategies/parallel.py", line 134, in teardown
+    super().teardown()
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/strategies/strategy.py", line 536, in teardown
+    self.lightning_module.cpu()
+  File "/opt/conda/lib/python3.10/site-packages/lightning_fabric/utilities/device_dtype_mixin.py", line 82, in cpu
+    return super().cpu()
+  File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1121, in cpu
+    return self._apply(lambda t: t.cpu())
+  File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  [Previous line repeated 3 more times]
+  File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 930, in _apply
+    param_applied = fn(param)
+  File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1121, in <lambda>
+    return self._apply(lambda t: t.cpu())
+RuntimeError: CUDA error: device-side assert triggered
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/trainer/call.py", line 47, in _call_and_handle_interrupt
+[rank0]:     return trainer.strategy.launcher.launch(trainer_fn, *args, trainer=trainer, **kwargs)
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/strategies/launchers/subprocess_script.py", line 105, in launch
+[rank0]:     return function(*args, **kwargs)
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 599, in _fit_impl
+[rank0]:     self._run(model, ckpt_path=ckpt_path)
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 1012, in _run
+[rank0]:     results = self._run_stage()
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 1054, in _run_stage
+[rank0]:     self._run_sanity_check()
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 1083, in _run_sanity_check
+[rank0]:     val_loop.run()
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/loops/utilities.py", line 179, in _decorator
+[rank0]:     return loop_run(self, *args, **kwargs)
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 145, in run
+[rank0]:     self._evaluation_step(batch, batch_idx, dataloader_idx, dataloader_iter)
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 437, in _evaluation_step
+[rank0]:     output = call._call_strategy_hook(trainer, hook_name, *step_args)
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/trainer/call.py", line 328, in _call_strategy_hook
+[rank0]:     output = fn(*args, **kwargs)
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/strategies/strategy.py", line 411, in validation_step
+[rank0]:     return self._forward_redirection(self.model, self.lightning_module, "validation_step", *args, **kwargs)
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/strategies/strategy.py", line 641, in __call__
+[rank0]:     wrapper_output = wrapper_module(*args, **kwargs)
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/torch/nn/parallel/distributed.py", line 1643, in forward
+[rank0]:     else self._run_ddp_forward(*inputs, **kwargs)
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/torch/nn/parallel/distributed.py", line 1459, in _run_ddp_forward
+[rank0]:     return self.module(*inputs, **kwargs)  # type: ignore[index]
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/strategies/strategy.py", line 634, in wrapped_forward
+[rank0]:     out = method(*_args, **_kwargs)
+[rank0]:   File "/workspace/auto-avsr/lightning.py", line 67, in validation_step
+[rank0]:     return self._step(batch, batch_idx, step_type="val")
+[rank0]:   File "/workspace/auto-avsr/lightning.py", line 97, in _step
+[rank0]:     loss, loss_ctc, loss_att, acc = self.model(batch["inputs"], batch["input_lengths"], batch["targets"])
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/workspace/auto-avsr/espnet/nets/pytorch_backend/e2e_asr_conformer.py", line 79, in forward
+[rank0]:     pred_pad, _ = self.decoder(ys_in_pad, ys_mask, x, padding_mask)
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/workspace/auto-avsr/espnet/nets/pytorch_backend/decoder/transformer_decoder.py", line 250, in forward
+[rank0]:     x = self.embed(tgt)
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/container.py", line 250, in forward
+[rank0]:     input = module(input)
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/sparse.py", line 190, in forward
+[rank0]:     return F.embedding(
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/torch/nn/functional.py", line 2551, in embedding
+[rank0]:     return torch.embedding(weight, input, padding_idx, scale_grad_by_freq, sparse)
+[rank0]: RuntimeError: CUDA error: device-side assert triggered
+[rank0]: Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+[rank0]: During handling of the above exception, another exception occurred:
+
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/workspace/auto-avsr/train.py", line 212, in <module>
+[rank0]:     cli_main()
+[rank0]:   File "/workspace/auto-avsr/train.py", line 207, in cli_main
+[rank0]:     trainer.fit(model=modelmodule, datamodule=datamodule, ckpt_path=args.ckpt_path)
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 561, in fit
+[rank0]:     call._call_and_handle_interrupt(
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/trainer/call.py", line 69, in _call_and_handle_interrupt
+[rank0]:     trainer._teardown()
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 1035, in _teardown
+[rank0]:     self.strategy.teardown()
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/strategies/ddp.py", line 419, in teardown
+[rank0]:     super().teardown()
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/strategies/parallel.py", line 134, in teardown
+[rank0]:     super().teardown()
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/strategies/strategy.py", line 536, in teardown
+[rank0]:     self.lightning_module.cpu()
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/lightning_fabric/utilities/device_dtype_mixin.py", line 82, in cpu
+[rank0]:     return super().cpu()
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1121, in cpu
+[rank0]:     return self._apply(lambda t: t.cpu())
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 903, in _apply
+[rank0]:     module._apply(fn)
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 903, in _apply
+[rank0]:     module._apply(fn)
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 903, in _apply
+[rank0]:     module._apply(fn)
+[rank0]:   [Previous line repeated 3 more times]
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 930, in _apply
+[rank0]:     param_applied = fn(param)
+[rank0]:   File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1121, in <lambda>
+[rank0]:     return self._apply(lambda t: t.cpu())
+[rank0]: RuntimeError: CUDA error: device-side assert triggered
+[rank0]: Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.

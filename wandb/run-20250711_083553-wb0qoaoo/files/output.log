@@ -1,0 +1,59 @@
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/opt/conda/lib/python3.10/site-packages/torch/optim/lr_scheduler.py:62: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn(
+
+  | Name  | Type | Params | Mode
+---------------------------------------
+0 | model | E2E  | 238 M  | train
+---------------------------------------
+238 M     Trainable params
+0         Non-trainable params
+238 M     Total params
+955.192   Total estimated model params size (MB)
+561       Modules in train mode
+0         Modules in eval mode
+Sanity Checking DataLoader 0:   0%|                                                                                                                                                           | 0/2 [00:00<?, ?it/s]WER computation error at step 0: selected index k out of range
+  Error type: RuntimeError
+  Batch shapes - inputs: torch.Size([11, 96, 1, 88, 88])
+  Batch shapes - targets: torch.Size([11, 1, 17])
+  Target tensor shape: torch.Size([17])
+WER computation error at step 0: selected index k out of range
+  Error type: RuntimeError
+  Batch shapes - inputs: torch.Size([11, 96, 1, 88, 88])
+  Batch shapes - targets: torch.Size([11, 1, 17])
+  Target tensor shape: torch.Size([17])
+WER computation error at step 0: selected index k out of range
+  Error type: RuntimeError
+  Batch shapes - inputs: torch.Size([11, 96, 1, 88, 88])
+  Batch shapes - targets: torch.Size([11, 1, 17])
+  Target tensor shape: torch.Size([17])
+WER computation error at step 0: selected index k out of range
+  Error type: RuntimeError
+  Batch shapes - inputs: torch.Size([11, 96, 1, 88, 88])
+  Batch shapes - targets: torch.Size([11, 1, 17])
+  Target tensor shape: torch.Size([17])
+WER computation - Step 0: 1.0000 (samples: 0/4)
+Epoch 0:   0%|                                                                                                                                                                               | 0/59 [00:00<?, ?it/s]WER computation error at step 0: selected index k out of range
+  Error type: RuntimeError
+  Batch shapes - inputs: torch.Size([21, 73, 1, 88, 88])
+  Batch shapes - targets: torch.Size([21, 1, 16])
+  Target tensor shape: torch.Size([16])
+WER computation error at step 0: selected index k out of range
+  Error type: RuntimeError
+  Batch shapes - inputs: torch.Size([21, 73, 1, 88, 88])
+  Batch shapes - targets: torch.Size([21, 1, 16])
+  Target tensor shape: torch.Size([16])
+WER computation error at step 0: selected index k out of range
+  Error type: RuntimeError
+  Batch shapes - inputs: torch.Size([21, 73, 1, 88, 88])
+  Batch shapes - targets: torch.Size([21, 1, 16])
+  Target tensor shape: torch.Size([16])
+WER computation error at step 0: selected index k out of range
+  Error type: RuntimeError
+  Batch shapes - inputs: torch.Size([21, 73, 1, 88, 88])
+  Batch shapes - targets: torch.Size([21, 1, 16])
+  Target tensor shape: torch.Size([16])
+WER computation - Step 0: 1.0000 (samples: 0/4)
+Epoch 0:  53%|████████████████████████████████████████████████████████████████████████████████▉                                                                         | 31/59 [04:10<03:46,  0.12it/s, v_num=oaoo]
+
+Detected KeyboardInterrupt, attempting graceful shutdown ...

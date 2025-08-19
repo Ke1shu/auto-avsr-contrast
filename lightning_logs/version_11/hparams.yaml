@@ -1,0 +1,6 @@
+debug: false
+decode_snr_target: 999999
+modality: video
+pretrained_model_path: exp/oulu_45/epoch_403.pth
+root_dir: /workspace/auto-avsr/oulu
+test_file: 45/test.csv

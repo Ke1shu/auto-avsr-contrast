@@ -1,0 +1,23 @@
+2025-07-18 08:04:01,607 INFO    MainThread:83276 [wandb_setup.py:_flush():80] Current SDK version is 0.21.0
+2025-07-18 08:04:01,608 INFO    MainThread:83276 [wandb_setup.py:_flush():80] Configure stats pid to 83276
+2025-07-18 08:04:01,608 INFO    MainThread:83276 [wandb_setup.py:_flush():80] Loading settings from /root/.config/wandb/settings
+2025-07-18 08:04:01,608 INFO    MainThread:83276 [wandb_setup.py:_flush():80] Loading settings from /workspace/auto-avsr/wandb/settings
+2025-07-18 08:04:01,608 INFO    MainThread:83276 [wandb_setup.py:_flush():80] Loading settings from environment variables
+2025-07-18 08:04:01,608 INFO    MainThread:83276 [wandb_init.py:setup_run_log_directory():703] Logging user logs to ./wandb/run-20250718_080401-gc2jh4tb/logs/debug.log
+2025-07-18 08:04:01,608 INFO    MainThread:83276 [wandb_init.py:setup_run_log_directory():704] Logging internal logs to ./wandb/run-20250718_080401-gc2jh4tb/logs/debug-internal.log
+2025-07-18 08:04:01,608 INFO    MainThread:83276 [wandb_init.py:init():830] calling init triggers
+2025-07-18 08:04:01,608 INFO    MainThread:83276 [wandb_init.py:init():835] wandb.init called with sweep_config: {}
+config: {'_wandb': {}}
+2025-07-18 08:04:01,608 INFO    MainThread:83276 [wandb_init.py:init():871] starting backend
+2025-07-18 08:04:01,816 INFO    MainThread:83276 [wandb_init.py:init():874] sending inform_init request
+2025-07-18 08:04:01,824 INFO    MainThread:83276 [wandb_init.py:init():882] backend started and connected
+2025-07-18 08:04:01,825 INFO    MainThread:83276 [wandb_init.py:init():953] updated telemetry
+2025-07-18 08:04:01,828 INFO    MainThread:83276 [wandb_init.py:init():977] communicating run to backend with 90.0 second timeout
+2025-07-18 08:04:02,770 INFO    MainThread:83276 [wandb_init.py:init():1029] starting run threads in backend
+2025-07-18 08:04:02,831 INFO    MainThread:83276 [wandb_run.py:_console_start():2458] atexit reg
+2025-07-18 08:04:02,831 INFO    MainThread:83276 [wandb_run.py:_redirect():2306] redirect: wrap_raw
+2025-07-18 08:04:02,831 INFO    MainThread:83276 [wandb_run.py:_redirect():2375] Wrapping output streams.
+2025-07-18 08:04:02,831 INFO    MainThread:83276 [wandb_run.py:_redirect():2398] Redirects installed.
+2025-07-18 08:04:02,832 INFO    MainThread:83276 [wandb_init.py:init():1075] run started, returning control to user process
+2025-07-18 08:04:03,113 INFO    MainThread:83276 [wandb_run.py:_config_callback():1363] config_cb None None {'exp_dir': './exp', 'exp_name': 'oulu_45', 'group_name': None, 'modality': 'video', 'root_dir': '/workspace/auto-avsr/oulu', 'train_file': '45/train.csv', 'val_file': '45/val.csv', 'test_file': '45/test.csv', 'num_nodes': 1, 'gpus': 1, 'pretrained_model_path': None, 'transfer_frontend': False, 'transfer_encoder': False, 'warmup_epochs': 5, 'max_epochs': 1000, 'max_frames': 1600, 'lr': 0.001, 'weight_decay': 0.03, 'ctc_weight': 0.1, 'train_num_buckets': 400, 'ckpt_path': None, 'slurm_job_id': '0', 'debug': False}
+2025-07-18 08:04:06,071 INFO    MsgRouterThr:83276 [mailbox.py:close():129] [no run ID] Closing mailbox, abandoning 1 handles.

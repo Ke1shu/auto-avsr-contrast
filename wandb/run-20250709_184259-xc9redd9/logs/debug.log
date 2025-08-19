@@ -1,0 +1,104 @@
+2025-07-09 18:42:59,205 INFO    MainThread:524416 [wandb_setup.py:_flush():80] Current SDK version is 0.21.0
+2025-07-09 18:42:59,205 INFO    MainThread:524416 [wandb_setup.py:_flush():80] Configure stats pid to 524416
+2025-07-09 18:42:59,205 INFO    MainThread:524416 [wandb_setup.py:_flush():80] Loading settings from /root/.config/wandb/settings
+2025-07-09 18:42:59,205 INFO    MainThread:524416 [wandb_setup.py:_flush():80] Loading settings from /workspace/auto-avsr/wandb/settings
+2025-07-09 18:42:59,205 INFO    MainThread:524416 [wandb_setup.py:_flush():80] Loading settings from environment variables
+2025-07-09 18:42:59,205 INFO    MainThread:524416 [wandb_init.py:setup_run_log_directory():703] Logging user logs to ./wandb/run-20250709_184259-xc9redd9/logs/debug.log
+2025-07-09 18:42:59,205 INFO    MainThread:524416 [wandb_init.py:setup_run_log_directory():704] Logging internal logs to ./wandb/run-20250709_184259-xc9redd9/logs/debug-internal.log
+2025-07-09 18:42:59,205 INFO    MainThread:524416 [wandb_init.py:init():830] calling init triggers
+2025-07-09 18:42:59,206 INFO    MainThread:524416 [wandb_init.py:init():835] wandb.init called with sweep_config: {}
+config: {'_wandb': {}}
+2025-07-09 18:42:59,206 INFO    MainThread:524416 [wandb_init.py:init():871] starting backend
+2025-07-09 18:42:59,416 INFO    MainThread:524416 [wandb_init.py:init():874] sending inform_init request
+2025-07-09 18:42:59,425 INFO    MainThread:524416 [wandb_init.py:init():882] backend started and connected
+2025-07-09 18:42:59,425 INFO    MainThread:524416 [wandb_init.py:init():953] updated telemetry
+2025-07-09 18:42:59,428 INFO    MainThread:524416 [wandb_init.py:init():977] communicating run to backend with 90.0 second timeout
+2025-07-09 18:43:00,409 INFO    MainThread:524416 [wandb_init.py:init():1029] starting run threads in backend
+2025-07-09 18:43:00,471 INFO    MainThread:524416 [wandb_run.py:_console_start():2458] atexit reg
+2025-07-09 18:43:00,471 INFO    MainThread:524416 [wandb_run.py:_redirect():2306] redirect: wrap_raw
+2025-07-09 18:43:00,471 INFO    MainThread:524416 [wandb_run.py:_redirect():2375] Wrapping output streams.
+2025-07-09 18:43:00,471 INFO    MainThread:524416 [wandb_run.py:_redirect():2398] Redirects installed.
+2025-07-09 18:43:00,473 INFO    MainThread:524416 [wandb_init.py:init():1075] run started, returning control to user process
+2025-07-09 18:43:00,759 INFO    MainThread:524416 [wandb_run.py:_config_callback():1363] config_cb None None {'exp_dir': './exp', 'exp_name': 'oulu_front', 'group_name': None, 'modality': 'video', 'root_dir': '/workspace/auto-avsr/oulu', 'train_file': 'train.csv', 'val_file': 'val.csv', 'test_file': 'test.csv', 'num_nodes': 1, 'gpus': 1, 'pretrained_model_path': None, 'transfer_frontend': False, 'transfer_encoder': False, 'warmup_epochs': 5, 'max_epochs': 1000, 'max_frames': 1600, 'lr': 0.001, 'weight_decay': 0.03, 'ctc_weight': 0.1, 'train_num_buckets': 400, 'ckpt_path': None, 'slurm_job_id': '0', 'debug': False}
+2025-07-09 20:44:38,807 INFO    MsgRouterThr:524416 [mailbox.py:close():129] [no run ID] Closing mailbox, abandoning 1 handles.
+2025-07-09 20:44:40,826 ERROR   MainThread:524416 [redirect.py:_on_write():664] [all runs] error in stdout callback
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2379, in <lambda>
+    lambda data: self._console_raw_callback("stdout", data),
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 398, in wrapper
+    return func(self, *args, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 456, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1566, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 170, in send_record_publish
+    self.send_server_request(server_req)
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 150, in send_server_request
+    self._send_message(msg)
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 147, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 126, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-07-09 20:44:40,833 ERROR   MainThread:524416 [redirect.py:_on_write():664] [all runs] error in stdout callback
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2379, in <lambda>
+    lambda data: self._console_raw_callback("stdout", data),
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 398, in wrapper
+    return func(self, *args, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 456, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1566, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 170, in send_record_publish
+    self.send_server_request(server_req)
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 150, in send_server_request
+    self._send_message(msg)
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 147, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 126, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-07-09 20:44:40,833 ERROR   MainThread:524416 [redirect.py:_on_write():664] [all runs] error in stdout callback
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2379, in <lambda>
+    lambda data: self._console_raw_callback("stdout", data),
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 398, in wrapper
+    return func(self, *args, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 456, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1566, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 170, in send_record_publish
+    self.send_server_request(server_req)
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 150, in send_server_request
+    self._send_message(msg)
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 147, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/opt/conda/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 126, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe

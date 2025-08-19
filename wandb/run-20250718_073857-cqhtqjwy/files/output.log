@@ -1,0 +1,83 @@
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/opt/conda/lib/python3.10/site-packages/torch/optim/lr_scheduler.py:62: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn(
+
+  | Name  | Type | Params | Mode
+---------------------------------------
+0 | model | E2E  | 238 M  | train
+---------------------------------------
+238 M     Trainable params
+0         Non-trainable params
+238 M     Total params
+955.192   Total estimated model params size (MB)
+561       Modules in train mode
+0         Modules in eval mode
+Sanity Checking DataLoader 0:   0%|                                                                                                  | 0/2 [00:00<?, ?it/s]Error processing sample 0: selected index k out of range
+Target shape: torch.Size([1, 17])
+Input shape: torch.Size([96, 1, 88, 88])
+Error processing sample 1: selected index k out of range
+Target shape: torch.Size([1, 17])
+Input shape: torch.Size([96, 1, 88, 88])
+Error processing sample 2: selected index k out of range
+Target shape: torch.Size([1, 17])
+Input shape: torch.Size([96, 1, 88, 88])
+Error processing sample 3: selected index k out of range
+Target shape: torch.Size([1, 17])
+Input shape: torch.Size([96, 1, 88, 88])
+Error processing sample 4: selected index k out of range
+Target shape: torch.Size([1, 17])
+Input shape: torch.Size([96, 1, 88, 88])
+Error processing sample 5: selected index k out of range
+Target shape: torch.Size([1, 17])
+Input shape: torch.Size([96, 1, 88, 88])
+Error processing sample 6: selected index k out of range
+Target shape: torch.Size([1, 17])
+Input shape: torch.Size([96, 1, 88, 88])
+Error processing sample 7: selected index k out of range
+Target shape: torch.Size([1, 17])
+Input shape: torch.Size([96, 1, 88, 88])
+Error processing sample 8: selected index k out of range
+Target shape: torch.Size([1, 17])
+Input shape: torch.Size([96, 1, 88, 88])
+Error processing sample 9: selected index k out of range
+Target shape: torch.Size([1, 17])
+Input shape: torch.Size([96, 1, 88, 88])
+Error processing sample 10: selected index k out of range
+Target shape: torch.Size([1, 17])
+Input shape: torch.Size([96, 1, 88, 88])
+Sanity Checking DataLoader 0:  50%|█████████████████████████████████████████████                                             | 1/2 [00:01<00:01,  0.88it/s]Error processing sample 0: selected index k out of range
+Target shape: torch.Size([1, 17])
+Input shape: torch.Size([89, 1, 88, 88])
+Error processing sample 1: selected index k out of range
+Target shape: torch.Size([1, 17])
+Input shape: torch.Size([89, 1, 88, 88])
+Error processing sample 2: selected index k out of range
+Target shape: torch.Size([1, 17])
+Input shape: torch.Size([89, 1, 88, 88])
+Error processing sample 3: selected index k out of range
+Target shape: torch.Size([1, 17])
+Input shape: torch.Size([89, 1, 88, 88])
+Error processing sample 4: selected index k out of range
+Target shape: torch.Size([1, 17])
+Input shape: torch.Size([89, 1, 88, 88])
+Error processing sample 5: selected index k out of range
+Target shape: torch.Size([1, 17])
+Input shape: torch.Size([89, 1, 88, 88])
+Error processing sample 6: selected index k out of range
+Target shape: torch.Size([1, 17])
+Input shape: torch.Size([89, 1, 88, 88])
+Error processing sample 7: selected index k out of range
+Target shape: torch.Size([1, 17])
+Input shape: torch.Size([89, 1, 88, 88])
+Error processing sample 8: selected index k out of range
+Target shape: torch.Size([1, 17])
+Input shape: torch.Size([89, 1, 88, 88])
+Error processing sample 9: selected index k out of range
+Target shape: torch.Size([1, 17])
+Input shape: torch.Size([89, 1, 88, 88])
+Error processing sample 10: selected index k out of range
+Target shape: torch.Size([1, 17])
+Input shape: torch.Size([89, 1, 88, 88])
+Epoch 0:   0%|                                                                                                                      | 0/59 [00:00<?, ?it/s]
+
+Detected KeyboardInterrupt, attempting graceful shutdown ...
