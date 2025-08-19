@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 元ファイルがあるディレクトリ
-SRC_DIR="/mount/OuluVS2/OuluVS2/OuluVS2-zip/lsentence"
+SRC_DIR="/mount/Oulu/lsentence"
 
 # シンボリックリンクを作るディレクトリ
 DST_DIR="/workspace/auto-avsr/oulu/text"

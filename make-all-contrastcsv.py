@@ -5,7 +5,7 @@ from preparation.transforms import TextTransform  # ✅ 既存の TextTransform 
 
 # --- パス設定（必要に応じて書き換えてください） ---
 text_dir    = "oulu/text"
-video1_dir  = "oulu/video"   # ✅ v1 用ディレクトリ
+video1_dir  = "oulu/video0"   # ✅ v1 用ディレクトリ
 video2_dir  = "oulu/video90"   # ✅ v2 用ディレクトリ
 tg_dir      = "oulu/textgrid"     # ✅ TextGrid ディレクトリ
 output_csv  = "oulu/labels/contrast/all-data.csv"
