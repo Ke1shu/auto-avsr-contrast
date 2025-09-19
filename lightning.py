@@ -141,6 +141,44 @@ class ModelModule(LightningModule):
             self.log("loss_ctc_val", loss_ctc, batch_size=batch_size, sync_dist=True)
             self.log("loss_att_val", loss_att, batch_size=batch_size, sync_dist=True)
             self.log("decoder_acc_val", acc, batch_size=batch_size, sync_dist=True)
+        
+        # ========= ここから追加（予測/正解のトークン列と文字列を標準出力） =========
+        # 出力頻度：train は 200 ステップごと、val は毎バッチ
+        need_print = (step_type != "train") or (self.global_step % 200 == 0)
+
+        if need_print:
+            try:
+                # beam_search の遅延初期化（なければ作る）
+                if not hasattr(self, "beam_search"):
+                    self.beam_search = get_beam_search_decoder(self.model, self.token_list)
+
+                # バッチ先頭1件だけ軽くデコード
+                with torch.no_grad():
+                    x1 = self.model.frontend(batch["inputs"][0].unsqueeze(0))
+                    x1 = self.model.proj_encoder(x1)
+                    enc_feat, _ = self.model.encoder(x1, None)
+                    enc_feat = enc_feat.squeeze(0)
+
+                    nbest_hyps = self.beam_search(enc_feat)
+                    nbest_hyps = [h.asdict() for h in nbest_hyps[:1]]
+                    hyp_ids = torch.tensor(list(map(int, nbest_hyps[0]["yseq"][1:])))  # 先頭の <sos> を除外
+                    hyp_text = self.text_transform.post_process(hyp_ids).replace("<eos>", "")
+
+                    ref_ids = batch["targets"][0]
+                    ref_text = self.text_transform.post_process(ref_ids)
+
+                # 標準出力
+                print(f"[DEBUG] {step_type.upper()} | Sample {batch_idx}")
+                print(f" > REF (decoded): '{ref_text}'")
+                print(f" > HYP (decoded): '{hyp_text}'")
+                print(f" > REF token id: {ref_ids.tolist() if hasattr(ref_ids, 'tolist') else list(ref_ids)}")
+                print(f" > HYP token id: {hyp_ids.tolist()}")
+                print(f" > target type    : {type(batch['targets'])}")
+
+            except Exception as e:
+                print(f"[DEBUG] print failed: {e}")
+        # ========= 追加ここまで =========
+        
 
         if step_type == "train":
             self.log("monitoring_step", torch.tensor(self.global_step, dtype=torch.float32))

@@ -10,7 +10,7 @@ from datamodule.data_module import DataModule
 from lightning import ModelModule
 
 # 追加ルート（pre-contrastive：2ビュー＋TextGridで対照学習）
-from datamodule.data_module import ContrastiveDataModule
+from datamodule.data_module_contrastive import ContrastiveDataModule
 from lightning import ContrastiveModelModule
 
 
